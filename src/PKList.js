@@ -5,13 +5,12 @@ import isObject from 'lodash/isObject';
 import isArray from 'lodash/isArray';
 import escapeRegExp from 'lodash/escapeRegExp';
 import isUndefined from 'lodash/isUndefined';
-import xClass from './utils/xClass';
+import classNames from 'classnames';
 import FlipMove from 'react-flip-move';
 import Cols from './components/Cols';
 import {
 	TransitionMotion,
-	spring,
-	preset
+	spring
 } from 'react-motion';
 
 
@@ -141,7 +140,7 @@ export default class PKList extends React.Component{
 										: true
 								}))
 							}}
-							className={xClass(
+							className={classNames(
 								'header-field',
 								sortKey == s.key
 									? (sortAsc ? 'asc' : 'desc')
@@ -351,7 +350,7 @@ export default class PKList extends React.Component{
 		}
 
 		return (
-			<div className={xClass('pure-list', wrapClass)}>
+			<div className={classNames('pure-list', wrapClass)}>
 				<div className="search-row">
 					<input
 						className="form-control"
@@ -375,7 +374,7 @@ export default class PKList extends React.Component{
 						>{pages.map(p =>
 							<a 	key={`page-${p}`}
 								onClick={this.setPage.bind(null, p)}
-								className={xClass({selected: p == page})}
+								className={classNames({selected: p == page})}
 							>{p}</a>
 						)}</div>
 					) : null}
@@ -456,7 +455,7 @@ export class PKListItem extends PureComponent{
 		} = this.props;
 		return (
 			<div
-				className={xClass({
+				className={classNames({
 					"pure-list-item": true,
 					"selected": selected === true,
 					"recent": recentlyEdited === true,

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
-import xClass from '../utils/xClass';
+import classNames from 'classnames';
 
 export default class Cols extends Component{
 	
@@ -54,7 +54,7 @@ export default class Cols extends Component{
 				React.Children.map(r, (c, cIdx) =>
 					<div
 						key={cIdx}
-						className={xClass(
+						className={classNames(
 							`col`,
 							`col-xs-12`,
 							`col-sm-${

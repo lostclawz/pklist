@@ -5,31 +5,44 @@
   "main": "src/PKList.js",
   "scripts": {
     "test": "mocha --require babel-core/register ./**/test-*.js",
-    "test:watch": "mocha --watch --growl --require babel-core/register ./**/test-*.js"
+    "test:watch": "mocha --watch --growl --require babel-core/register ./**/test-*.js",
+    "start": "npx webpack",
+    "start:server": "nodemon --exec npx babel-node ./src/api/index.js",
+    "build": "npx webpack --env.production"
   },
   "author": "Philip Kuperberg",
   "license": "ISC",
   "babel": {
     "presets": [
-      "es2015"
+      "@babel/env",
+      "@babel/react"
     ],
     "plugins": [
-      "transform-object-rest-spread",
-      "transform-es2015-destructuring"
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-destructuring",
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-destructuring": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "chai": "^4.1.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.5",
     "mocha": "^5.0.4",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-flip-move": "^3.0.1",
+    "react-dom": "^16.4.2",
+    "react-flip-move": "^3.0.2",
     "react-motion": "^0.5.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
   }
 }
